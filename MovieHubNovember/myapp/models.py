@@ -11,6 +11,8 @@ class Genres(models.Model):
     def __str__(self):
         return self.genre
 
+
+
 class Movies(models.Model):
     name=models.CharField(max_length=250,unique=True)
     genres=models.ManyToManyField(Genres,null=True)
@@ -31,11 +33,17 @@ class Movies(models.Model):
     def __str__(self):
         return self.name
     
+    
+    
 class Reviews(models.Model):
     movie=models.ForeignKey(Movies,on_delete=models.CASCADE)
     user=models.ForeignKey(User,on_delete=models.CASCADE)
     comment=models.CharField(max_length=200)
     rating=models.PositiveIntegerField()
+
+
+
+
     
 
 
